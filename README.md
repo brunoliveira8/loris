@@ -1,5 +1,5 @@
 # Loris
-The micro-web framework for the simplest people.
+The micro web-framework for the simplest people.
 
 Goals:
   - Practicing Python.
