@@ -1,7 +1,12 @@
 # Loris
-The micro web-framework for the simplest people.
+The micro web-framework for the people that loves simplicity.
+
+Description:
+  - This project aims to build a micro web-framework in Python based on Bottle framework.
+
 
 Goals:
   - Practicing Python.
-  - Praciticing Git.
+  - Practicing Git.
   - Learning more about web and computer networks.
+
