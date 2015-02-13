@@ -1,4 +1,5 @@
 # Loris
+![alt tag](http://csce.uark.edu/~tbcarnei/loris/Loris.jpg)
 The micro web-framework for people that love simplicity.
 
 Description:
