@@ -7,3 +7,8 @@
   - https://docs.python.org/2/howto/webservers.html
   - http://werkzeug.pocoo.org/  -> Important
   - http://pt.wikipedia.org/wiki/Python_Paste
+  - http://wsgi.readthedocs.org/en/latest/libraries.html
+
+- What I found?
+  - I found that I should choose a WSGI middleware to help me with the WSGI implementation. The middleware implements both side   API.
+  - Middleware options: Paste or Werkzeug.
