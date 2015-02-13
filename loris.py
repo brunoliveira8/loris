@@ -3,7 +3,9 @@
 
 """
 Loris is a simple micro-framework for small web applications written in a 
-single file and with no dependencies other than the Python Standard Library.
+single file.
+
+Dependencies: Python Standard Library and WebOb library.
 
 Homepage and documentation: no available yet.
 
