@@ -14,7 +14,7 @@ Copyright (c) 2015, Tarcisio Bruno C. Oliveira
 
 def app(environ, start_response):
     start_response('200 OK', [('content-type', 'text/html')])
-    return ['Hello world!']
+    return ['Loris micro framework!']
 
 if __name__ == '__main__':
     from paste import httpserver
