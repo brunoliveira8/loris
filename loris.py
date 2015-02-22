@@ -15,18 +15,11 @@ Copyright (c) 2015, Tarcisio Bruno C. Oliveira
 import re
 import sys
 from webob import Request, Response, exc
+from paste import httpserver
 
-
-
-
-def app(environ, start_response):
-    start_response('200 OK', [('content-type', 'text/html')])
-    return ['Loris micro framework!']
-
-if __name__ == '__main__':
-    from paste import httpserver
-    httpserver.serve(app, host='127.0.0.1', port='8080')
-
+#Run Server
+def run(app, host='127.0.0.1', port='8080'):
+	httpserver.serve(app, host, port)
 
 #Templating
 var_regex = re.compile(r'''
@@ -64,20 +57,20 @@ class Router(object):
 	def __init__(self):
 		self.routes = []
 
-def add_route(self, template, controller, **vars):
-	if isinstance(controller, basestring):
-		controller = load_controller(controller)
-	self.routes.append((re.compile(template_to_regex(template)),controller,vars))
+	def add_route(self, template, controller, **vars):
+		if isinstance(controller, basestring):
+			controller = load_controller(controller)
+		self.routes.append((re.compile(template_to_regex(template)),controller,vars))
 
-def __call__(self, environ, start_response):
-	req = Request(environ)
-	for regex, controller, vars in self.routes:
-		match = regex.match(req.path_info)
-		if match:
-			req.urlvars = match.groupdict()
-			req.urlvars.update(vars)
-			return controller(environ, start_response)
-	return exc.HTTPNotFound()(environ, start_response)
+	def __call__(self, environ, start_response):
+		req = Request(environ)
+		for regex, controller, vars in self.routes:
+			match = regex.match(req.path_info)
+			if match:
+				req.urlvars = match.groupdict()
+				req.urlvars.update(vars)
+				return controller(environ, start_response)
+		return exc.HTTPNotFound()(environ, start_response)
 
 #Controller
 def controller(func):
@@ -91,3 +84,4 @@ def controller(func):
 			resp = Response(body=resp)
 		return resp(environ, start_response)
 	return replacement
+
